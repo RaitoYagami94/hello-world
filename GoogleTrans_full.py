@@ -71,6 +71,15 @@ def translateR():
     b=a.text+"\n"
     print (b)
     box1.insert(END,b)
+
+def translateKhac():
+    INPUT=box.get(1.0,END)
+    print (INPUT)
+    t= Translator()
+    a= t.translate(INPUT, src="vi", dest=w)
+    b=a.text+"\n"
+    print (b)
+    box1.insert(END,b)
 #Khởi tạo nút xóa chữ và câu lệnh xóa #Đặt vị trí nút xóa chữ
 clear_button=Button(Button_frame, text = "Xóa TV", font=(("Arial"), 10, 'bold'), bg='#303030', fg="#ffffff", command=clearTV)
 clear_button.place(x=5, y= 155)
@@ -92,6 +101,12 @@ trans_buttonD.place(x=250, y= 295)
 trans_buttonR=Button(Button_frame, text = "Nga", font=(("Arial"), 10, 'bold'), bg='#303030', fg="#ffffff", command=translateR)
 trans_buttonR.place(x=250, y= 330)
 
+# Them nut chon ngo ngu
+T_lang = StringVar(root)
+T_lang.set("Khác...") # default value
+w = OptionMenu(root, T_lang, "lo", "my", "ro", command=translateKhac)
+print(w)
+w.place(x=300, y=325)
 
 #Đưa kết quả dịch vào box1
 box1=Text(root,width=28,height=8,font=("ROBOTO", 16))
